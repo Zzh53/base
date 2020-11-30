@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>确认删除？</title>
+        <link href="/components.css" rel="stylesheet" />
+        <link href="/dialog_error.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="dialog">
+            <div class="content">
+                <span>确认删除“{{record.stu_name}}”的《{{record.cou_name}}》的成绩({{record.grade}})?</span>
+            </div>
+            <div class="footer">
+                <div class="btn">
+                    <form
+                        action="/action/grade/delete/{{record.stu_sn}}/{{record.cou_sn}}"
+                        method="post"
+                    >
+                        <input type="submit" value="删除" />
+                    </form>
+                </div>
+                <div class="btn">
+                    <a href="/">返回</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

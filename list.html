@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>成绩管理</title>
+        <link href="/components.css" rel="stylesheet" />
+        <link href="/styles.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div class="paper">
+            <form class="grade-form" action="/action/grade/add" method="post">
+                <label>学生：</label>
+                <select name="stu_sn">
+                    <option value="">--选择--</option>
+                    {% for stu in students %}
+                    <option value="{{stu.stu_sn}}">
+                        {{stu.stu_name}}({{stu.stu_sn}})
+                    </option>
+                    {% endfor %}
+                </select>
+
+                <label>课程：</label>
+                <select name="cou_sn">
+                    <option value="">--选择--</option>
+                    {% for item in courses %}
+                    <option value="{{item.cou_sn}}">
+                        {{item.cou_name}}({{item.cou_sn}})
+                    </option>
+                    {% endfor %}
+                </select>
+
+                <label>成绩：</label>
+                <input type="text" name="grade" />
+
+                <input type="submit" value="添加成绩" />
+            </form>
+            <hr />
+            <table>
+                <tr>
+                    <th>姓名</th>
+                    <th>课程</th>
+                    <th>成绩</th>
+                    <th>操作</th>
+                </tr>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.stu_name }}</td>
+                    <td>{{ item.cou_name }}</td>
+                    <td>{{ item.grade }}</td>
+                    <td>
+                        <div class="ctrlbar">
+                            <div class="btn">
+                                <a
+                                    href="/grade/edit/{{item.stu_sn}}/{{item.cou_sn}}"
+                                >
+                                    修改
+                                </a>
+                            </div>
+                            <div class="btn">
+                                <a
+                                    href="/grade/delete/{{item.stu_sn}}/{{item.cou_sn}}"
+                                >
+                                    删除
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>

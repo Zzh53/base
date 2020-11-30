@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog {
+    width: 50em;
+    height: max-content;
+    background-color: #920808;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog > .title {
+    text-align: center;
+    font-size: 2em;
+}
+
+.dialog > .content {
+    padding: 1em 2em;
+    font-size: 1.2em;
+    line-height: 1.2;
+    flex: 1 1;
+}
+
+.dialog > .footer {
+    display: flex;
+    justify-content: center;
+}
+
